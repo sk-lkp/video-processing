@@ -52,17 +52,18 @@ class Job(Base):
     # Relationship to video
     video = relationship("Video", back_populates="jobs")
 
-class Overlay(Base):
-    __tablename__ = "overlays"
-    
-    id = Column(Integer, primary_key=True, index=True)
-    video_id = Column(Integer, ForeignKey("videos.id"))
-    type = Column(String)  # text, image, video
-    content = Column(String)  # text content or file path
-    position = Column(String)  # top-left, top-right, center, etc.
-    start_time = Column(Float)  # in seconds
-    end_time = Column(Float)    # in seconds
-    size = Column(Integer, nullable=True)  # font size or overlay size
-    
-    # Relationship to video
-    video = relationship("Video")
+# The Overlay model is currently unused; commenting it out to avoid creating an unnecessary table
+# class Overlay(Base):
+#     __tablename__ = "overlays"
+#     
+#     id = Column(Integer, primary_key=True, index=True)
+#     video_id = Column(Integer, ForeignKey("videos.id"))
+#     type = Column(String)  # text, image, video
+#     content = Column(String)  # text content or file path
+#     position = Column(String)  # top-left, top-right, center, etc.
+#     start_time = Column(Float)  # in seconds
+#     end_time = Column(Float)    # in seconds
+#     size = Column(Integer, nullable=True)  # font size or overlay size
+#     
+#     # Relationship to video
+#     video = relationship("Video")
